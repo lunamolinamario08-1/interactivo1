@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kawasaki Z1000</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #1b1b1b, #2c2c2c 25%, #185e02 75%,  #01c432);
+      background-attachment: fixed;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    header {
+      width: 80%;
+      height: 100px;
+      border: 3px solid  #01c432;
+      background: linear-gradient(90deg, #111, #2c2c2c);
+      color: #f5f5f5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8em;
+      letter-spacing: 2px;
+      font-weight: bold;
+      text-transform: uppercase;
+      box-shadow: 0 0 20px  #01c432;
+    }
+
+    main {
+      display: flex;
+      width: 80%;
+      margin-top: 20px;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .contenido, aside {
+      border: 2px solid  #01c432;
+      background-color: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(5px);
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(44, 255, 2, 0.6);
+    }
+
+    .contenido {
+      width: 65%;
+    }
+
+    aside {
+      width: 30%;
+    }
+
+    img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      color:  #01c432;
+      margin-bottom: 10px;
+      text-shadow: 0 0 10px rgba(196, 182, 182, 0.6);
+    }
+
+    p {
+      line-height: 1.6;
+      color: #f0f0f0;
+      text-align: justify;
+    }
+
+    button {
+      background-color: #01c432;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 8px;
+      margin-top: 10px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: #03e144;
+    }
+
+  </style>
+</head>
+<body>
+
+  <header>
+   Kawasaki Z1000
+  </header>
+
+  <main>
+    <div class="contenido">
+     <img id="imagenPrincipal" 
+           src="https://i.pinimg.com/1200x/97/e3/fa/97e3faeea7aa294e1d846c9cb436fc6d.jpg"
+           alt="Kawasaki Z1000"
+           usemap="#mapaAuto">
+
+      <map name="mapaAuto">
+        <area shape="rect" coords="270,150,440,250" alt="Motor" id="zonaMotor">
+        <area shape="rect" coords="60,100,200,200" alt="Interior" id="zonaInterior">
+      </map>
+
+      <h2>Descripción</h2>
+      <p>
+        La Kawasaki Z1000 es una moto naked deportiva de 1043 cc con motor de 4 cilindros en línea, que entrega 142 caballos de fuerza. Destaca por su diseño agresivo, con líneas angulosas y un faro LED distintivo. Su chasis ofrece gran estabilidad y maniobrabilidad, gracias a una suspensión invertida adelante y monoshock detrás. Viene equipada con tecnología como modos de conducción, control de tracción y ABS. Con un peso de 221 kg, es potente, alcanzando más de 250 km/h.
+      </p>
+    </div>
+
+    <aside id="galeria">
+      <h2 id="tituloGaleria">Galería</h2>
+      <img id="imagenGaleria"
+           src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Kawasaki_Ninja_1000_ABS_right-side_2011_Tokyo_Motor_Show.jpg/500px-Kawasaki_Ninja_1000_ABS_right-side_2011_Tokyo_Motor_Show.jpg"
+           alt="Kawasaki Z1000">
+      <p id="descripcionGaleria">
+        Un dato importante de la Kawasaki Z1000 es su motor de 4 cilindros en línea de 1043 cc, que produce alrededor de 142 caballos de fuerza. Esto le otorga un rendimiento excepcional.
+      </p>
+
+      <button id="btnQuiz">Prueba de Conocimiento</button>
+      <button id="btnRegresar" style="display:none;">Regresar a Galería</button>
+    </aside>
+  </main>
+
+  <script>
+    const zonaMotor = document.getElementById("zonaMotor");
+    const zonaInterior = document.getElementById("zonaInterior");
+    const tituloGaleria = document.getElementById("tituloGaleria");
+    const imagenGaleria = document.getElementById("imagenGaleria");
+    const descripcionGaleria = document.getElementById("descripcionGaleria");
+    const btnRegresar = document.getElementById("btnRegresar");
+    const btnQuiz = document.getElementById("btnQuiz");
+
+    function mostrarGaleriaOriginal() {
+      tituloGaleria.textContent = "Galería";
+      imagenGaleria.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Kawasaki_Ninja_1000_ABS_right-side_2011_Tokyo_Motor_Show.jpg/500px-Kawasaki_Ninja_1000_ABS_right-side_2011_Tokyo_Motor_Show.jpg";
+      descripcionGaleria.textContent =
+        "Un dato importante de la Kawasaki Z1000 es su motor de 4 cilindros en línea de 1043 cc, que produce alrededor de 142 caballos de fuerza. Esto le otorga un rendimiento excepcional.";
+      btnRegresar.style.display = "none";
+    }
+
+    zonaMotor.addEventListener("click", () => {
+      tituloGaleria.textContent = "Manillar";
+      imagenGaleria.src = "https://motorcycle-soul.com/39469-large_default/soporte-navegador-para-manillar-sw-motech-negro-kawasaki-z1000sx-ninja-1000sx.jpg";
+      descripcionGaleria.textContent =
+        "El manillar de la Kawasaki Z1000 es ancho y está diseñado para ofrecer una postura cómoda y deportiva.";
+      btnRegresar.style.display = "block";
+    });
+
+    zonaInterior.addEventListener("click", () => {
+      tituloGaleria.textContent = "Motor";
+      imagenGaleria.src = "https://mcn-images.bauersecure.com/wp-images/3829/1440x960/06kawasaki-z1000.jpg?mode=max&quality=90&scale=down";
+      descripcionGaleria.textContent =
+        "El motor de la Kawasaki Z1000 es de 4 cilindros en línea de 998 cc con 142 CV y 111 Nm de par motor.";
+      btnRegresar.style.display = "block";
+    });
+
+    btnRegresar.addEventListener("click", mostrarGaleriaOriginal);
+
+    
+    btnQuiz.addEventListener("click", () => {
+      const preguntas = [
+        { q: "¿Qué tipo de moto es la Kawasaki Z1000?", a: "naked" },
+        { q: "¿Cuántos cilindros tiene el motor?", a: "4" },
+        { q: "¿Cuál es la cilindrada del motor?", a: "1043" },
+        { q: "¿Qué sistema de frenos incluye?", a: "abs" },
+        { q: "¿Qué peso aproximado tiene?", a: "221" },
+        { q: "¿Qué velocidad máxima puede alcanzar?", a: "250" },
+        { q: "¿Qué tipo de suspensión delantera usa?", a: "invertida" },
+        { q: "¿Cuántas marchas tiene la transmisión?", a: "6" },
+        { q: "¿Qué tipo de tracción tiene?", a: "trasera" },
+        { q: "¿Qué marca fabrica la Z1000?", a: "kawasaki" }
+      ];
+
+      let correctas = 0;
+
+      for (let i = 0; i < preguntas.length; i++) {
+        let respuesta = prompt(`${i + 1}. ${preguntas[i].q}`);
+        if (respuesta) {
+          respuesta = respuesta.trim().toLowerCase();
+          if (respuesta.includes(preguntas[i].a)) correctas++;
+        }
+      }
+
+      alert(`Tu calificación es: ${correctas}/10`);
+
+      if (confirm("¿Quieres volver a intentarlo?")) {
+        correctas = 0;
+        btnQuiz.click();
+      }
+    });
+  </script>
+
+</body>
+</html>
